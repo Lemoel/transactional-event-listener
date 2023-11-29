@@ -7,7 +7,6 @@ import org.springframework.transaction.event.TransactionalEventListener
 
 @Component
 class ListenerAluno2 {
-
     @Async
     @TransactionalEventListener(AlunoCreatedEvent::class)
     fun onboardingCreated(event: AlunoCreatedEvent) {

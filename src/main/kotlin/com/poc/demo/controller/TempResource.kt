@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/test")
-
 class TempResource(
     val tempUseCase: TempUseCase,
 ) {

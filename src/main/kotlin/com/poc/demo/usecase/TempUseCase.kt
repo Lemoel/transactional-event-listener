@@ -14,9 +14,7 @@ class TempUseCase(
 ) {
     @Transactional
     fun execute(): Aluno? {
-        val aluno = Aluno(
-            name = "Aluno_1",
-        )
+        val aluno = Aluno(name = "Aluno_1")
         return alunoRepository.save(aluno).let {
             eventPublisher.publishEvent(AlunoCreatedEvent(it.id!!))
             it

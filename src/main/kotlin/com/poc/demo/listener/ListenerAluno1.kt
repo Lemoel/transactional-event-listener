@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class ListenerAluno1 {
-
     @Async
     @EventListener(AlunoCreatedEvent::class)
     fun onboardingCreated(event: AlunoCreatedEvent) {
