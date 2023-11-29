@@ -1,0 +1,78 @@
+info:
+  application:
+    name: 'POC'
+    description: 'Prova de conceito'
+    version: '1'
+
+server:
+  port: 8080
+  shutdown: graceful
+  forward-headers-strategy: framework
+  error:
+    whitelabel:
+      enabled: false
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: info, health
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+      probes:
+        enabled: true
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+
+spring:
+  profiles:
+    active: local
+  task:
+    scheduling:
+      shutdown:
+        await-termination: true
+        await-termination-period: 5m
+    execution:
+      shutdown:
+        await-termination: true
+        await-termination-period: 5m
+  main:
+    banner-mode: off
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    name: poc
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/poc
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 5
+      dialect-name: POSTGRES
+      leak-detection-threshold: 5000
+      init-query: SELECT 1;
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    schemas: public
+    default-schema: public
+    baseline-on-migrate: true
+    enable: true
+  web:
+    locale: en_EN
+  mvc:
+    locale-resolver: fixed
+    log-request-details: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB

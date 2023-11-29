@@ -1,0 +1,19 @@
+version: "3.9"
+
+volumes:
+  postgres: {}
+
+services:
+
+  postgres:
+    container_name: poc-postgres
+    image: debezium/postgres:15-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: credit_onboarding
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
