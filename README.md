@@ -17,3 +17,13 @@ Ao subir o projeto pela primeira vez será criado um schema de banco de dados de
 # 3 - SpringBoot
 
 O projeto foi feito usando **SpringBoot e Kotlin**
+
+## 4 - Fontes
+
+[https://medium.com/@luksrn/eventos-em-transa%C3%A7%C3%B5es-do-spring-ec5db69c1006](https://medium.com/@luksrn/eventos-em-transa%C3%A7%C3%B5es-do-spring-ec5db69c1006)
+
+[https://docs.spring.io/spring-framework/reference/data-access/transaction/event.html](https://docs.spring.io/spring-framework/reference/data-access/transaction/event.html)
+
+[https://www.baeldung.com/spring-events](https://www.baeldung.com/spring-events)
+
+[https://github.com/Lemoel/transactional-event-listener](https://github.com/Lemoel/transactional-event-listener)
